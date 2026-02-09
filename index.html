@@ -2,15 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WikiRandom</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="header">
-        <h1>WikiRandom</h1>
-        <button onclick="location.reload();">Random Article</button>
+        <h1>WikiRandom <span class="subtitle">- Random Wikipedia Articles</span></h1>
+        <button id="randomBtn">Random Article</button>
     </div>
     <iframe src="https://en.wikipedia.org/wiki/Special:Random" id="wiki-frame" frameborder="0"></iframe>
+
+    <script>
+        const frame = document.getElementById('wiki-frame');
+
+        function loadRandomArticle() {
+            frame.src = "https://en.wikipedia.org/wiki/Special:Random";
+        }
+
+        document.getElementById('randomBtn').addEventListener('click', loadRandomArticle);
+
+        loadRandomArticle();
+    </script>
+
 </body>
 </html>
